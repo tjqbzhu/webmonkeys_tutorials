@@ -17,31 +17,40 @@ function popupModal(eve) {
 
 	// Create a HTML Div element
 	var transparentScreen = document.createElement("div"),
-		modal = document.createElement("p"); // Create a HTML paragraph element
+		popupModal = document.createElement("p"), // Create a HTML paragraph element
+		modalInfo;
 
 	/*
+	 * In JavaScript, we are allowed to declare functions inside of other functions. This
+	 * is called a closure.
 	 * rmScreen function
 	 * Removes the transparent screen.
 	 */
 	function rmScreen(eve) {
-		// Grab HTML element whose ID is set to modal
-		var modal = document.getElementById("modal");
+		// Grab HTML element whose ID is set to "popup-modal"
+		var popupModal = document.getElementById("popup-modal");
 
 		// Remove modal HTML element from the DOM
-		modal.remove();
+		popupModal.remove();
 
 		// Remove the element that received the event from the DOM
 		eve.target.remove();
 
 	} 
 
-	// Ad an ID attribute on the modal and set its value to 'modal' (e.g. id="modal" )
-	modal.setAttribute("id", "modal");
+	// Grab the element that contains the information that should appear in the modal
+	modalInfo = document.getElementById("modal-info");
+
+	// Grab the actual text that should appear in the modal
+	modalInfo = modalInfo.innerText;
+
+	// Add an ID attribute on the modal, and set its value to 'popup-modal' (e.g. id="popup-modal" )
+	popupModal.setAttribute("id", "popup-modal");
 
 	// Add text to the modal
-	modal.innerText = "Hello World";
+	popupModal.innerText = modalInfo;
 
-	// Sdd a class attribute to the transparent screent and set its value to 'transScreen'
+	// Add a class attribute to the transparent screent and set its value to 'transScreen'
 	transparentScreen.setAttribute("class", "transScreen");
 
 	// When the transparent screen is clicked, execute the rmScreen function on it.
@@ -51,6 +60,6 @@ function popupModal(eve) {
 	document.body.appendChild(transparentScreen);
 
 	// Append the Modal to the DOM
-	document.body.appendChild(modal);
+	document.body.appendChild(popupModal);
 
 }

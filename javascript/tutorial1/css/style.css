@@ -9,8 +9,13 @@
 
 }
 
-#modal {
-	margin-left: 40%;
+/* Initiall, we should hide the information that will appear in the modal */
+#modal-info {
+	display: none;
+}
+
+#popup-modal {
+	margin-left: 30%;
 	background: white;
 	text-align: center;
 	padding: 10px;
@@ -19,3 +24,4 @@
 	position: absolute;
 	z-index: 10;
 }
+
