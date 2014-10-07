@@ -17,7 +17,7 @@ function popupModal(eve) {
 
 	// Create a HTML Div element
 	var transparentScreen = document.createElement("div"),
-		popupModal = document.createElement("p"), // Create a HTML paragraph element
+		popupModal = document.createElement("div"), // Create a HTML paragraph element
 		modalInfo;
 
 	/*
@@ -41,14 +41,14 @@ function popupModal(eve) {
 	// Grab the element that contains the information that should appear in the modal
 	modalInfo = document.getElementById("modal-info");
 
-	// Grab the actual text that should appear in the modal
-	modalInfo = modalInfo.innerText;
+	// Grab the HTML that should appear in the modal
+	modalInfo = modalInfo.innerHTML;
 
 	// Add an ID attribute on the modal, and set its value to 'popup-modal' (e.g. id="popup-modal" )
 	popupModal.setAttribute("id", "popup-modal");
 
 	// Add text to the modal
-	popupModal.innerText = modalInfo;
+	popupModal.innerHTML = modalInfo;
 
 	// Add a class attribute to the transparent screent and set its value to 'transScreen'
 	transparentScreen.setAttribute("class", "transScreen");
