@@ -6,18 +6,23 @@ clickMe.addEventListener("click", popupModal);
 
 function popupModal(eve) {
 
-	var transparentScreen = document.createElement("div");
-	transparentScreen.className = "transScreen";
+	var transparentScreen = document.createElement("div"),
+		modal = document.createElement("p");
 
-	var modal = document.createElement("p");
-	modal.className = "modal";
+	
+	function rmScreen(eve) {
+		var modal = document.getElementById("modal");
+
+		modal.remove();
+		eve.target.remove();
+
+	} 
+
+	modal.setAttribute("id", "modal");
 	modal.innerText = "Hello World";
 
+	transparentScreen.setAttribute("class", "transScreen");
 	transparentScreen.addEventListener('click', rmScreen);
-
-	function rmScreen(eve) {
-		eve.target.style.display = "none";
-	} 
 
 
 	document.body.appendChild(modal);
