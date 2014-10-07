@@ -9,7 +9,7 @@
 
 }
 
-/* Initiall, we should hide the information that will appear in the modal */
+/* Initially, we should hide the information that will appear in the modal */
 #modal-info {
 	display: none;
 }
